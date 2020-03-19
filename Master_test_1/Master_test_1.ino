@@ -45,14 +45,14 @@ void loop()
 {
   Wire.beginTransmission(4); // transmit to device #4
   Wire.write("AZMYIN MD KAMAL ");        // sends five bytes
- // Wire.write(3);              // sends one byte  
+ // Wire.write(3);              // sends one byte
   Wire.endTransmission(true);    // stop transmitting
 
 
   Wire.requestFrom(4, 6);    // request 6 bytes from slave device #2
   String response = "";
   while(Wire.available())    // slave may send less than requested
-  { 
+  {
     char b = Wire.read(); // receive a byte as character
     response += b;         // print the character
   }
